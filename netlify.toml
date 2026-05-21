@@ -1,0 +1,14 @@
+# Configuración de despliegue para Netlify.
+# El runtime oficial de Next.js (@netlify/plugin-nextjs) se instala
+# automáticamente al detectar Next; gestiona SSR, API routes y la imagen OG.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Node 20 (el proyecto usa Next 14). Ajusta si lo necesitas.
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
