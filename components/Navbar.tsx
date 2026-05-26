@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { LanguageSwitcher } from "./i18n/LanguageSwitcher";
@@ -9,15 +11,15 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const { t } = useI18n();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   const navLinks = [
-    { href: "#servicios", label: t.nav.services },
-    { href: "#portafolio", label: t.nav.portfolio },
-    { href: "#nosotros", label: t.nav.about },
-    { href: "#testimonios", label: t.nav.testimonials },
-    { href: "#contacto", label: t.nav.contact },
+    { href: "/servicios", label: t.nav.services },
+    { href: "/portafolio", label: t.nav.portfolio },
+    { href: "/nosotros", label: t.nav.about },
+    { href: "/contacto", label: t.nav.contact },
   ];
 
   useEffect(() => {
@@ -34,38 +36,50 @@ export function Navbar() {
     };
   }, [open]);
 
+  // Cierra el menú móvil al navegar.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
+        scrolled || pathname !== "/"
           ? "border-b border-white/[0.06] bg-ink-900/80 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       )}
     >
       <nav className="container-page flex h-16 items-center justify-between sm:h-20">
-        <a href="#inicio" aria-label={t.a11y.home}>
+        <Link href="/" aria-label={t.a11y.home}>
           <Logo />
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-steel-300 transition-colors hover:text-white"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                    active ? "text-gold-400" : "text-steel-300 hover:text-white"
+                  )}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageSwitcher />
-          <a href="#contacto" className="btn-primary">
+          <Link href="/contacto" className="btn-primary">
             {t.nav.quote}
-          </a>
+          </Link>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
@@ -92,23 +106,21 @@ export function Navbar() {
         <ul className="container-page flex flex-col gap-1 py-4">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
-                onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-3 text-base font-medium text-steel-200 hover:bg-white/5 hover:text-white"
+                className={cn(
+                  "block rounded-lg px-3 py-3 text-base font-medium hover:bg-white/5",
+                  pathname === link.href ? "text-gold-400" : "text-steel-200 hover:text-white"
+                )}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li className="mt-2">
-            <a
-              href="#contacto"
-              onClick={() => setOpen(false)}
-              className="btn-primary w-full"
-            >
+            <Link href="/contacto" className="btn-primary w-full">
               {t.nav.quote}
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

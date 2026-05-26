@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight, MessageSquare } from "lucide-react";
 import { useI18n } from "../i18n/LanguageProvider";
 import { Reveal } from "../ui/Reveal";
@@ -29,13 +30,13 @@ export function CtaBand() {
               {t.cta.subtitle}
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a href="#contacto" className="btn-primary group w-full sm:w-auto">
+              <Link href="/contacto" className="btn-primary group w-full sm:w-auto">
                 {t.cta.primary}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a href="#portafolio" className="btn-ghost w-full sm:w-auto">
+              </Link>
+              <Link href="/portafolio" className="btn-ghost w-full sm:w-auto">
                 {t.cta.secondary}
-              </a>
+              </Link>
             </div>
           </div>
         </Reveal>

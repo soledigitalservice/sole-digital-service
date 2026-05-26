@@ -11,6 +11,7 @@ export const defaultLocale: Locale = "es";
 
 export type Dictionary = {
   nav: {
+    home: string;
     services: string;
     portfolio: string;
     about: string;
@@ -48,6 +49,7 @@ export type Dictionary = {
     titleHighlight: string;
     subtitle: string;
     ctaCard: string;
+    viewAll: string;
     items: { title: string; description: string; features: string[] }[]; // paralelo a data.services
   };
   portfolio: {
@@ -121,6 +123,7 @@ export type Dictionary = {
 
 const es: Dictionary = {
   nav: {
+    home: "Inicio",
     services: "Servicios",
     portfolio: "Portafolio",
     about: "Nosotros",
@@ -165,6 +168,7 @@ const es: Dictionary = {
     subtitle:
       "Desde la idea hasta el despliegue. Cubrimos cada capa del producto digital con un estándar de ingeniería elevado.",
     ctaCard: "Hablemos de tu proyecto",
+    viewAll: "Ver todos los servicios",
     items: [
       {
         title: "Desarrollo web a medida",
@@ -391,6 +395,7 @@ const es: Dictionary = {
 
 const en: Dictionary = {
   nav: {
+    home: "Home",
     services: "Services",
     portfolio: "Portfolio",
     about: "About",
@@ -435,6 +440,7 @@ const en: Dictionary = {
     subtitle:
       "From idea to deployment. We cover every layer of the digital product with a high engineering standard.",
     ctaCard: "Let's talk about your project",
+    viewAll: "View all services",
     items: [
       {
         title: "Custom web development",

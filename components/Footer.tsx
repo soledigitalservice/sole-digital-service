@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Github, Linkedin, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
 import { useI18n } from "./i18n/LanguageProvider";
@@ -16,11 +17,11 @@ export function Footer() {
   const { t } = useI18n();
 
   const navLinks = [
-    { href: "#servicios", label: t.nav.services },
-    { href: "#portafolio", label: t.nav.portfolio },
-    { href: "#nosotros", label: t.nav.about },
-    { href: "#testimonios", label: t.nav.testimonials },
-    { href: "#contacto", label: t.nav.contact },
+    { href: "/", label: t.nav.home },
+    { href: "/servicios", label: t.nav.services },
+    { href: "/portafolio", label: t.nav.portfolio },
+    { href: "/nosotros", label: t.nav.about },
+    { href: "/contacto", label: t.nav.contact },
   ];
 
   return (
@@ -56,12 +57,12 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-steel-400 transition-colors hover:text-gold-400"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { LogoMark } from "../Logo";
@@ -67,13 +68,13 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
             className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
-            <a href="#contacto" className="btn-primary group w-full sm:w-auto">
+            <Link href="/contacto" className="btn-primary group w-full sm:w-auto">
               {t.hero.ctaPrimary}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a href="#servicios" className="btn-ghost w-full sm:w-auto">
+            </Link>
+            <Link href="/servicios" className="btn-ghost w-full sm:w-auto">
               {t.hero.ctaSecondary}
-            </a>
+            </Link>
           </motion.div>
         </div>
 

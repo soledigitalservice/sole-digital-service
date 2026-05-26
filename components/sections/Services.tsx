@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUpRight, Check } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, ArrowRight, Check } from "lucide-react";
 import { services } from "@/lib/data";
 import { useI18n } from "../i18n/LanguageProvider";
 import { SectionHeading } from "../ui/SectionHeading";
@@ -8,8 +9,10 @@ import { Reveal } from "../ui/Reveal";
 import { Icon } from "../ui/Icon";
 import { GridGlow } from "../ui/Decor";
 
-export function Services() {
+/** `preview`: muestra solo 3 servicios + enlace a la página completa (para la home). */
+export function Services({ preview = false }: { preview?: boolean }) {
   const { t } = useI18n();
+  const items = preview ? services.slice(0, 3) : services;
 
   return (
     <section id="servicios" className="relative scroll-mt-20 py-24 sm:py-32">
@@ -27,7 +30,7 @@ export function Services() {
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => {
+          {items.map((service, i) => {
             const copy = t.services.items[i];
             return (
               <Reveal key={service.slug} delay={i * 0.06}>
@@ -57,18 +60,27 @@ export function Services() {
                     ))}
                   </ul>
 
-                  <a
-                    href="#contacto"
+                  <Link
+                    href="/contacto"
                     className="relative mt-6 inline-flex items-center gap-1 text-sm font-medium text-gold-400 opacity-0 transition-opacity group-hover:opacity-100"
                   >
                     {t.services.ctaCard}
                     <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </article>
               </Reveal>
             );
           })}
         </div>
+
+        {preview && (
+          <Reveal className="mt-10 flex justify-center">
+            <Link href="/servicios" className="btn-ghost group">
+              {t.services.viewAll}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
+        )}
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { siteConfig } from "@/lib/site";
+import { SiteShell } from "@/components/SiteShell";
 import "./globals.css";
 
 // next/font descarga y autoaloja las fuentes en build: sin llamadas externas en
@@ -105,13 +106,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${display.variable} ${body.variable}`}>
       <body className="font-sans">
-        <a
-          href="#contenido"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-gold-400 focus:px-4 focus:py-2 focus:text-ink-900"
-        >
-          Saltar al contenido
-        </a>
-        {children}
+        <SiteShell>{children}</SiteShell>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
