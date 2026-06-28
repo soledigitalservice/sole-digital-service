@@ -17,8 +17,8 @@ export function Navbar() {
 
   const navLinks = [
     { href: "/servicios", label: t.nav.services },
-    { href: "/portafolio", label: t.nav.portfolio },
-    { href: "/nosotros", label: t.nav.about },
+    { href: "/team", label: t.nav.team },
+    { href: "/resenas", label: t.nav.reviews },
     { href: "/contacto", label: t.nav.contact },
   ];
 

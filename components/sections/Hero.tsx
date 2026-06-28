@@ -119,7 +119,7 @@ export function Hero() {
         </motion.div>
 
         {/* Estadísticas */}
-        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.04] sm:grid-cols-4">
+        <div className="mx-auto mt-14 grid max-w-md grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.04]">
           {stats.map((s, i) => (
             <motion.div
               key={i}

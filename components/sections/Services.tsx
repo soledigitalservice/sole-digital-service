@@ -8,11 +8,16 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
 import { Icon } from "../ui/Icon";
 import { GridGlow } from "../ui/Decor";
+import { cn } from "@/lib/utils";
 
 /** `preview`: muestra solo 3 servicios + enlace a la página completa (para la home). */
 export function Services({ preview = false }: { preview?: boolean }) {
   const { t } = useI18n();
   const items = preview ? services.slice(0, 3) : services;
+  // Home (preview): 1 / 2 / 3 columnas. Página completa: 2 columnas (2x2 con 4 items).
+  const gridCols = preview
+    ? "sm:grid-cols-2 lg:grid-cols-3"
+    : "sm:grid-cols-2 mx-auto max-w-4xl";
 
   return (
     <section id="servicios" className="relative scroll-mt-20 py-24 sm:py-32">
@@ -29,7 +34,7 @@ export function Services({ preview = false }: { preview?: boolean }) {
           subtitle={t.services.subtitle}
         />
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={cn("mt-14 grid gap-5", gridCols)}>
           {items.map((service, i) => {
             const copy = t.services.items[i];
             return (

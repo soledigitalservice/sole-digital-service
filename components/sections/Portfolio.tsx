@@ -9,14 +9,15 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { ProjectMockup } from "../ui/ProjectMockup";
 import { cn } from "@/lib/utils";
 
-export function Portfolio() {
+/** `noFilters`: oculta los filtros de industria (usado en la home). */
+export function Portfolio({ noFilters = false }: { noFilters?: boolean }) {
   const { t } = useI18n();
   const [filter, setFilter] = useState<IndustryFilter>("all");
 
   const visible =
-    filter === "all"
-      ? projects
-      : projects.filter((p) => p.industryKey === filter);
+    !noFilters && filter !== "all"
+      ? projects.filter((p) => p.industryKey === filter)
+      : projects;
 
   return (
     <section id="portafolio" className="relative scroll-mt-20 py-24 sm:py-32">
@@ -32,25 +33,27 @@ export function Portfolio() {
           subtitle={t.portfolio.subtitle}
         />
 
-        {/* Filtros */}
-        <div className="mt-10 flex flex-wrap justify-center gap-2">
-          {industryKeys.map((key) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => setFilter(key)}
-              className={cn(
-                "rounded-full border px-4 py-2 text-sm font-medium transition-all",
-                filter === key
-                  ? "border-gold-400/60 bg-gold-400/10 text-gold-300"
-                  : "border-white/10 text-steel-400 hover:border-white/25 hover:text-white"
-              )}
-              aria-pressed={filter === key}
-            >
-              {t.portfolio.industries[key]}
-            </button>
-          ))}
-        </div>
+        {/* Filtros (solo en la página completa, no en la home) */}
+        {!noFilters && (
+          <div className="mt-10 flex flex-wrap justify-center gap-2">
+            {industryKeys.map((key) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => setFilter(key)}
+                className={cn(
+                  "rounded-full border px-4 py-2 text-sm font-medium transition-all",
+                  filter === key
+                    ? "border-gold-400/60 bg-gold-400/10 text-gold-300"
+                    : "border-white/10 text-steel-400 hover:border-white/25 hover:text-white"
+                )}
+                aria-pressed={filter === key}
+              >
+                {t.portfolio.industries[key]}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Grid */}
         <motion.div layout className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

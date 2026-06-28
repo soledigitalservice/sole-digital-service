@@ -13,9 +13,7 @@ export const services: Service[] = [
   { slug: "web", icon: "Code2" },
   { slug: "mobile", icon: "Smartphone" },
   { slug: "ecommerce", icon: "ShoppingCart" },
-  { slug: "crm-erp", icon: "Database" },
   { slug: "automation", icon: "Workflow" },
-  { slug: "consulting", icon: "Lightbulb" },
 ];
 
 export type ProjectMockupKind =
@@ -133,8 +131,6 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   { name: "Sofía Alanís", initials: "SA", accent: "#f5a623" },
   { name: "Diego Romero", initials: "DR", accent: "#22d3ee" },
-  { name: "Valentina Cruz", initials: "VC", accent: "#fb923c" },
-  { name: "Iván Torres", initials: "IT", accent: "#a78bfa" },
 ];
 
 export type Step = {
@@ -150,10 +146,8 @@ export const processSteps: Step[] = [
 ];
 
 export const stats: { value: number; suffix?: string }[] = [
-  { value: 60, suffix: "+" },
-  { value: 98, suffix: "%" },
-  { value: 8 },
-  { value: 24, suffix: "/7" },
+  { value: 2 },
+  { value: 2 },
 ];
 
 /** Marcas de clientes (ficticias) para la franja de confianza. */

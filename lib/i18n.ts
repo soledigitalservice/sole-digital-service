@@ -14,8 +14,9 @@ export type Dictionary = {
     home: string;
     services: string;
     portfolio: string;
-    about: string;
+    team: string;
     testimonials: string;
+    reviews: string;
     contact: string;
     quote: string;
   };
@@ -69,6 +70,7 @@ export type Dictionary = {
     processTitle: string;
     steps: { title: string; description: string }[]; // paralelo a data.processSteps
     teamTitle: string;
+    teamCta: string; // botón "ver equipo" en la home
     roles: string[]; // paralelo a data.team
   };
   testimonials: {
@@ -126,8 +128,9 @@ const es: Dictionary = {
     home: "Inicio",
     services: "Servicios",
     portfolio: "Portafolio",
-    about: "Nosotros",
+    team: "Team",
     testimonials: "Testimonios",
+    reviews: "Reseñas",
     contact: "Contacto",
     quote: "Solicitar presupuesto",
   },
@@ -155,9 +158,7 @@ const es: Dictionary = {
     deployed: "✓ desplegado · 0 errores",
     stats: [
       "Proyectos entregados",
-      "Clientes satisfechos",
       "Industrias servidas",
-      "Soporte disponible",
     ],
   },
   clients: { title: "Negocios que confían en Sole Digital Service" },
@@ -189,22 +190,10 @@ const es: Dictionary = {
         features: ["Pagos seguros", "Inventario en tiempo real", "Checkout optimizado"],
       },
       {
-        title: "Sistemas CRM / ERP",
-        description:
-          "Software de gestión a medida que centraliza clientes, ventas, finanzas y operaciones en un solo lugar.",
-        features: ["Paneles a medida", "Roles y permisos", "Integraciones API"],
-      },
-      {
         title: "Automatización de procesos",
         description:
           "Eliminamos tareas repetitivas con flujos automatizados que ahorran horas y reducen errores.",
         features: ["Integraciones", "Bots y webhooks", "Reportes automáticos"],
-      },
-      {
-        title: "Consultoría tecnológica",
-        description:
-          "Te ayudamos a elegir el stack, la arquitectura y la hoja de ruta digital adecuada para crecer.",
-        features: ["Auditoría técnica", "Arquitectura", "Roadmap digital"],
       },
     ],
   },
@@ -299,11 +288,10 @@ const es: Dictionary = {
       },
     ],
     teamTitle: "El equipo",
+    teamCta: "Conocer al equipo",
     roles: [
       "CEO & Estrategia",
       "CTO & Arquitectura",
-      "Lead Product Designer",
-      "Lead Full-Stack",
     ],
   },
   testimonials: {
@@ -398,8 +386,9 @@ const en: Dictionary = {
     home: "Home",
     services: "Services",
     portfolio: "Portfolio",
-    about: "About",
+    team: "Team",
     testimonials: "Testimonials",
+    reviews: "Reviews",
     contact: "Contact",
     quote: "Request a quote",
   },
@@ -427,9 +416,7 @@ const en: Dictionary = {
     deployed: "✓ deployed · 0 errors",
     stats: [
       "Projects delivered",
-      "Satisfied clients",
       "Industries served",
-      "Support available",
     ],
   },
   clients: { title: "Businesses that trust Sole Digital Service" },
@@ -461,22 +448,10 @@ const en: Dictionary = {
         features: ["Secure payments", "Real-time inventory", "Optimized checkout"],
       },
       {
-        title: "CRM / ERP systems",
-        description:
-          "Custom management software that centralizes customers, sales, finance and operations in one place.",
-        features: ["Custom dashboards", "Roles & permissions", "API integrations"],
-      },
-      {
         title: "Process automation",
         description:
           "We eliminate repetitive tasks with automated workflows that save hours and reduce errors.",
         features: ["Integrations", "Bots & webhooks", "Automated reports"],
-      },
-      {
-        title: "Technology consulting",
-        description:
-          "We help you choose the right stack, architecture and digital roadmap to grow.",
-        features: ["Technical audit", "Architecture", "Digital roadmap"],
       },
     ],
   },
@@ -570,11 +545,10 @@ const en: Dictionary = {
       },
     ],
     teamTitle: "The team",
+    teamCta: "Meet the team",
     roles: [
       "CEO & Strategy",
       "CTO & Architecture",
-      "Lead Product Designer",
-      "Lead Full-Stack",
     ],
   },
   testimonials: {

@@ -34,7 +34,7 @@ export function CtaBand() {
                 {t.cta.primary}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/portafolio" className="btn-ghost w-full sm:w-auto">
+              <Link href="/#portafolio" className="btn-ghost w-full sm:w-auto">
                 {t.cta.secondary}
               </Link>
             </div>

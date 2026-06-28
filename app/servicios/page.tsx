@@ -5,7 +5,7 @@ import { CtaBand } from "@/components/sections/CtaBand";
 export const metadata: Metadata = {
   title: "Servicios",
   description:
-    "Desarrollo web a medida, apps móviles, e-commerce, sistemas CRM/ERP, automatización y consultoría tecnológica para pequeños negocios.",
+    "Desarrollo web a medida, apps móviles, e-commerce y automatización de procesos para pequeños negocios.",
   alternates: { canonical: "/servicios" },
 };
 

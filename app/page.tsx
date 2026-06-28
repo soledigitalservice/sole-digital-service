@@ -1,7 +1,8 @@
 import { Hero } from "@/components/sections/Hero";
 import { Clients } from "@/components/sections/Clients";
 import { Services } from "@/components/sections/Services";
-import { Testimonials } from "@/components/sections/Testimonials";
+import { Portfolio } from "@/components/sections/Portfolio";
+import { TeamPreview } from "@/components/sections/TeamPreview";
 import { CtaBand } from "@/components/sections/CtaBand";
 
 export default function HomePage() {
@@ -10,7 +11,8 @@ export default function HomePage() {
       <Hero />
       <Clients />
       <Services preview />
-      <Testimonials />
+      <Portfolio noFilters />
+      <TeamPreview />
       <CtaBand />
     </>
   );

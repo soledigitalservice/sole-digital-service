@@ -9,7 +9,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://soledigitalservice.com",
   tagline: "Software a medida para pequeños negocios que piensan en grande.",
   description:
-    "Sole Digital Service diseña y desarrolla software a medida para pequeños negocios: webs, apps móviles, e-commerce, CRM/ERP, automatización y consultoría tecnológica. Con base en Florida, disponibilidad global.",
+    "Sole Digital Service diseña y desarrolla software a medida para pequeños negocios: webs, apps móviles, e-commerce y automatización de procesos. Con base en Florida, disponibilidad global.",
   locale: "es_ES",
   contact: {
     email: "hello@soledigitalservice.com",

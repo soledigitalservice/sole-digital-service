@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
 import { useI18n } from "./i18n/LanguageProvider";
 import { siteConfig } from "@/lib/site";
@@ -9,7 +9,6 @@ import { siteConfig } from "@/lib/site";
 const socials = [
   { href: siteConfig.social.github, label: "GitHub", Icon: Github },
   { href: siteConfig.social.linkedin, label: "LinkedIn", Icon: Linkedin },
-  { href: siteConfig.social.x, label: "X", Icon: Twitter },
   { href: siteConfig.social.instagram, label: "Instagram", Icon: Instagram },
 ];
 
@@ -19,8 +18,9 @@ export function Footer() {
   const navLinks = [
     { href: "/", label: t.nav.home },
     { href: "/servicios", label: t.nav.services },
-    { href: "/portafolio", label: t.nav.portfolio },
-    { href: "/nosotros", label: t.nav.about },
+    { href: "/#portafolio", label: t.nav.portfolio },
+    { href: "/team", label: t.nav.team },
+    { href: "/resenas", label: t.nav.reviews },
     { href: "/contacto", label: t.nav.contact },
   ];
 

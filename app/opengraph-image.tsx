@@ -87,7 +87,7 @@ export default function OgImage() {
             pequeños negocios.
           </div>
           <div style={{ marginTop: 24, fontSize: 30, color: "#aeb5c4" }}>
-            Webs · Apps · E-commerce · CRM/ERP · Automatización
+            Webs · Apps · E-commerce · Automatización
           </div>
         </div>
 
